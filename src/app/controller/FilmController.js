@@ -13,6 +13,13 @@ class FilmController {
     }
     res.json(el);
   }
+
+  async category(req, res) {
+    const el = await FilmRepositories.findCategories();
+
+    res.json(el);
+  }
+
   async store(req, res) {
     const infoFilm = req.body;
     const el = await FilmRepositories.create(infoFilm);

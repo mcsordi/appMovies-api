@@ -8,6 +8,10 @@ class FilmRepositories {
     const sql = "select * from appMovies where id = ?";
     return films(sql, id, "Id não encontrado");
   }
+  findCategories(params) {
+    const sql = "SELECT category FROM appMovies GROUP BY category";
+    return films(sql, params, "Categorias não encontradas");
+  }
   create(film) {
     const sql = "insert into appMovies set ? ";
     return films(sql, film, "Erro ao adicionar filme");
