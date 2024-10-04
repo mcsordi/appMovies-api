@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
   host: "sql10.freesqldatabase.com",
   database: "sql10735009",
   user: "sql10735009",
-  password: process.env.PASS,
+  password: "c65yU3V55l",
   port: "3306",
 });
 
