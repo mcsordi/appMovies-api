@@ -13,8 +13,10 @@ class FilmRepositories {
     return films(sql, params, "Categorias não encontradas");
   }
   create(film) {
-    const sql = "insert into appMovies set ? ";
-    return films(sql, film, "Erro ao adicionar filme");
+    
+    const numberId = `select count(id) from appMovies`
+    const sql = `insert into appMovies set ?`;
+    return films(sql,film, "Erro ao adicionar filme");
   }
   delete(id) {
     const sql = "delete from appMovies where id = ? ";

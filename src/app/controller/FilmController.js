@@ -21,8 +21,11 @@ class FilmController {
   }
 
   async store(req, res) {
-    const infoFilm = req.body;
-    const el = await FilmRepositories.create(infoFilm);
+  
+    
+   const newId = Math.floor(Math.random()*1000000)
+   const filmObj={ id:newId, title: req.body.title, category: req.body.category, code: req.body.code }
+    const el = await FilmRepositories.create(filmObj);
     res.json(el);
   }
   async delete(req, res) {
