@@ -5,7 +5,7 @@ class FilmRepositories {
     return films(sql, params, "Filme não localizado");
   }
   findId(id) {
-    const sql = "select * from appMovies where id = ?";
+    const sql = "select * from appMovies where code = ?";
     return films(sql, id, "Id não encontrado");
   }
   findCategories(params) {
@@ -13,10 +13,10 @@ class FilmRepositories {
     return films(sql, params, "Categorias não encontradas");
   }
   create(film) {
-    
+
     const numberId = `select count(id) from appMovies`
     const sql = `insert into appMovies set ?`;
-    return films(sql,film, "Erro ao adicionar filme");
+    return films(sql, film, "Erro ao adicionar filme");
   }
   delete(id) {
     const sql = "delete from appMovies where id = ? ";

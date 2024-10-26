@@ -16,15 +16,12 @@ class FilmController {
 
   async category(req, res) {
     const el = await FilmRepositories.findCategories();
-
     res.json(el);
   }
 
   async store(req, res) {
-  
-    
-   const newId = Math.floor(Math.random()*1000000)
-   const filmObj={ id:newId, title: req.body.title, category: req.body.category, code: req.body.code }
+    const newId = Math.floor(Math.random() * 1000000)
+    const filmObj = { id: newId, title: req.body.title, category: req.body.category, code: req.body.code }
     const el = await FilmRepositories.create(filmObj);
     res.json(el);
   }
